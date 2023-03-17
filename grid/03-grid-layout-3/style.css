@@ -5,6 +5,10 @@
 
 .container {
   text-align: center;
+  display: grid;
+  grid-template: min-content min-content min-content min-content/ 1fr 4fr;
+  grid-template-areas: 'header header' 'sidebar nav' 'sidebar article' 'footer footer';
+  gap: 20px;
 }
 
 .container div {
@@ -17,6 +21,10 @@
 
 .header {
   background-color: #393f4d;
+  grid-area: header;
+  display: grid;
+  grid-template: 1fr / 1fr 4fr;
+  align-items: center;
 }
 
 .menu ul,
@@ -24,8 +32,19 @@
   font-size: 16px;
 }
 
+.menu ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  list-style: none;
+}
+
 .sidebar {
-  background-color: #FF7755;
+  background-color: #ff7755;
+  grid-area: sidebar;
+  display: grid;
+  row-gap: 50px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .sidebar .photo {
@@ -34,27 +53,44 @@
   font-size: 12px;
   font-weight: normal;
   border-radius: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .sidebar .side-content {
   background-color: white;
   color: black;
   font-size: 16px;
   font-weight: normal;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav {
-  background-color: #FF7755;
+  background-color: #ff7755;
+  grid-area: nav;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav ul li {
   font-size: 16px;
   text-transform: uppercase;
+  list-style: none;
 }
 
 .article {
   background-color: #bccbde;
+  grid-area: article;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: 15px;
 }
 
 .article p {
@@ -65,9 +101,13 @@
 }
 
 .article .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
   text-align: center;
+}
+
+.card {
+  height: 200px;
 }
 
 .card p {
@@ -83,9 +123,10 @@
 
 .footer {
   background-color: #393f4d;
+  grid-area: footer;
 }
 
 .footer p {
   font-size: 13px;
-  font-weight: normal;  
+  font-weight: normal;
 }
